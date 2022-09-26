@@ -14,6 +14,7 @@
 		7BE1FEAA28E1861600F11903 /* MainAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1FEA928E1861600F11903 /* MainAppTests.swift */; };
 		7BE1FEB428E1861700F11903 /* MainAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1FEB328E1861700F11903 /* MainAppUITests.swift */; };
 		7BE1FEB628E1861700F11903 /* MainAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1FEB528E1861700F11903 /* MainAppUITestsLaunchTests.swift */; };
+		7BE1FEFB28E1AACC00F11903 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1FEFA28E1AACC00F11903 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		7BE1FEB328E1861700F11903 /* MainAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppUITests.swift; sourceTree = "<group>"; };
 		7BE1FEB528E1861700F11903 /* MainAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7BE1FEF828E1879100F11903 /* MainApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MainApp.entitlements; sourceTree = "<group>"; };
+		7BE1FEFA28E1AACC00F11903 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				7BE1FEF828E1879100F11903 /* MainApp.entitlements */,
 				7BE1FE9828E1861200F11903 /* MainAppApp.swift */,
 				7BE1FE9A28E1861300F11903 /* ContentView.swift */,
+				7BE1FEFA28E1AACC00F11903 /* Model.swift */,
 				7BE1FE9C28E1861600F11903 /* Assets.xcassets */,
 				7BE1FE9E28E1861600F11903 /* Preview Content */,
 			);
@@ -261,6 +264,7 @@
 			files = (
 				7BE1FE9B28E1861300F11903 /* ContentView.swift in Sources */,
 				7BE1FE9928E1861200F11903 /* MainAppApp.swift in Sources */,
+				7BE1FEFB28E1AACC00F11903 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
