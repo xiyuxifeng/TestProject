@@ -12,9 +12,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: cd
-        run: |
-           cd ../../MainApp
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Default Scheme
