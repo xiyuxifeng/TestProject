@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: cd
         run: |
-           cd MainApp
+           cd ../../MainApp
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Default Scheme
