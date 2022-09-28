@@ -35,7 +35,7 @@ jobs:
           action: test         
           
           # Enables code coverage
-          code-coverage: false
+          code-coverage: true
           
           # A Base64-encoded authentication key issued by App Store Connect. If
           # specified, `xcodebuild`` will authenticate with the Apple Developer
@@ -107,4 +107,4 @@ jobs:
           # One of `always` or `on-failure`.
           # Consider `always` if you want access to your coverage-reports.
           # Beware that artifacts count against your GitHub Actions storage limits.
-          upload-logs: on-failure              
+          upload-logs: always              
