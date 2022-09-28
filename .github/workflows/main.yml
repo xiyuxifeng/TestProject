@@ -15,4 +15,5 @@ jobs:
       - name: build
         uses: mxcl/xcodebuild@v1
         with:
-          scheme: "MainApp"
+          scheme: MainApp
+          platform: iOS
