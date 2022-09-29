@@ -17,9 +17,8 @@ jobs:
           
         - name: GetLog
           run: |
-            echo $(cd $(dirname $0) && pwd)  
             echo "input date: $date"
-            sh log.sh $date
+            sh ./scripts/log.sh $date
             cat log.txt
             
         - name: Export
