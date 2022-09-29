@@ -8,9 +8,14 @@ on:
 
 jobs:
   build:
+    environment: xcode
     runs-on: macos-latest
     steps:
-      - name: Checkou
+      - name: tt
+        run: |
+          echo "${{ secrets.TEAM_ID }} is team id"
+        
+      - name: Checkout
         run: |
           echo "${{ secrets.TEAM_ID }} is team id"
 #       - name: Checkout
