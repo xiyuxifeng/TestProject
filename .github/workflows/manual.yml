@@ -1,0 +1,37 @@
+name: iOS Build
+
+on: workflow_dispatch
+  #https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+  inputs:
+    date:
+      description: 'Log level'
+      required: true
+jobs:
+  build:
+    environment: xcode
+    runs-on: macos-latest
+    steps:
+        - name: Checkout
+        uses: actions/checkout@v3
+        
+        - name: GetLog
+        run: |
+          echo "input date: $date"
+          sh log.sh $date
+          cat log.txt
+          
+        - name: Export
+        uses: yukiarrr/ios-build-action@v1.5.0
+        with:
+          project-path: MainApp.xcodeproj
+          scheme: MainApp
+          p12-key-base64: ${{ secrets.P12_BASE64 }}
+          p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          #mobileprovision-path: MainApp/embedded.mobileprovision
+          code-signing-identity: iOS Developer
+          certificate-password: ${{ secrets.PD }}
+          team-id: ${{ secrets.TEAM_ID }}
+          export-method: development
+          configuration: Debug
+          output-path: output/MainApp.ipa
