@@ -49,7 +49,7 @@ jobs:
               
           # The passphrase used to protect the code signing certificate. Pass this in
           # as a GitHub Encrypted Secret.
-          code-sign-certificate-passphrase: ""
+          code-sign-certificate-passphrase: ${{ secrets.P12_BASE64 }}
           
           # Identity to be used for code signing. If your project specifies a
           # `CODE_SIGN_IDENTITY`, this will override it.
@@ -97,8 +97,8 @@ jobs:
           scheme: MainApp
           p12-key-base64: ${{ secrets.P12_BASE64 }}
           p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-          #mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          mobileprovision-path: MainApp/embedded.mobileprovision
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          #mobileprovision-path: MainApp/embedded.mobileprovision
           code-signing-identity: iOS Developer
           certificate-password: ${{ secrets.PD }}
           team-id: ${{ secrets.TEAM_ID }}
