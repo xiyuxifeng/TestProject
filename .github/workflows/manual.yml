@@ -7,6 +7,7 @@ on:
       date:
         description: 'Last Release Date'
         required: true
+        type: string
 jobs:
   build:
     environment: xcode
