@@ -25,7 +25,7 @@ jobs:
             ls
             echo "4"
             echo "input date: $date"
-            sh scripts/log.sh $date
+            sh scripts/test.sh $date
             cat log.txt
             
         - name: Export
