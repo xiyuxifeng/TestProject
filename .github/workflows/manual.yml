@@ -15,6 +15,14 @@ on:
       date1:
         description: 'date'
         required: true
+      date2:
+        description: 'date'
+        required: true
+        type: string
+      date3:
+        description: 'date'
+        required: true
+        type: boolean
       tags:
         description: 'Test scenario tags'
         required: false
@@ -31,7 +39,9 @@ jobs:
       - run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
-          echo "date: $date1"
+          echo "date1: $date1"
+          echo "date2: $date2"
+          echo "date3: $date3"
           echo "Environment: $ENVIRONMENT"
         env:
           LEVEL: ${{ inputs.logLevel }}
