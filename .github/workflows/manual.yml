@@ -17,6 +17,13 @@ jobs:
           
         - name: GetLog
           run: |
+            ls
+            cd ..
+            ls
+            cd ..
+            ls
+            cd ..
+            ls
             echo "input date: $date"
             sh ./scripts/log.sh $date
             cat log.txt
