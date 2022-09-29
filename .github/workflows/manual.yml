@@ -1,4 +1,4 @@
-name: iOS Build
+name: Manual Build
 
 #https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
 on:
