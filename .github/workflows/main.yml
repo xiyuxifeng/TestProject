@@ -20,8 +20,6 @@ jobs:
           # A semantic version range, eg. ^10, ~10.3 or 10.3.1
           # Leave unset for the image‑default.
           xcode: 14.0
-          
-          # A semantic version range, eg. ^5, ~5.4 or 5.4.1
           swift: 5.5
           
           # Either `iOS`, `tvOS`, `macOS`, `watchOS` or (more rarely)  `mac-catalyst`
@@ -34,36 +32,11 @@ jobs:
           # to use this (GitHub) Action solely for selecting an Xcode version.
           # Specifying `''`, `null` or `~` will cause xcodebuild to behave as it
           # does without an action specified (usually `build`)
-          action: build         
+          action: test         
           
           # Enables code coverage
           code-coverage: false
-          
-          # A Base64-encoded certificate to be installed to the macOS Keychain for
-          # code signing. It is removed from the keychain in the post action. This
-          # certificate should correspond to the `CODE_SIGN_IDENTITY` specified in
-          # your project or to the `code-sign-identity` input. Pass this in as a
-          # GitHub Encrypted Secret. Requires macOS and
-          # `code-sign-certificate-passphrase`.
-          code-sign-certificate: ${{ secrets.P12_CER_BASE64 }}
-              
-          # The passphrase used to protect the code signing certificate. Pass this in
-          # as a GitHub Encrypted Secret.
-          code-sign-certificate-passphrase: ${{ secrets.P12_BASE64 }}
-          
-          # Identity to be used for code signing. If your project specifies a
-          # `CODE_SIGN_IDENTITY`, this will override it.
-          code-sign-identity: iOS Developer
-          
-          # A multiline list of Base64-encoded mobile provisioning profiles.
-          mobile-provisioning-profiles-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          
-          # A multiline list of Base64-encoded Mac provisioning profiles.
-          provisioning-profiles-base64: ""
-          
-          # working-directory
-          working-directory: ""
-          
+                    
           # Typically `Release` or `Debug`.
           # Leave unset and `xcodebuild` decides itself.
           configuration: Debug
@@ -75,21 +48,14 @@ jobs:
           # We try to detect your workspace, but if we fail you can manually specify
           # it with this parameter.
           workspace: ""
-          
+
           # Fails the build if any warnings in *non test targets*.
           warnings-as-errors: false
-          
-          # One of `xcpretty`, `quiet` or `verbose`.
-          verbosity: xcpretty
                
           # One of `always` or `on-failure`.
           # Consider `always` if you want access to your coverage-reports.
           # Beware that artifacts count against your GitHub Actions storage limits.
           upload-logs: on-failure         
-      - name: ShowIpa
-        run: |
-          ls
-
       - name: Export
         uses: yukiarrr/ios-build-action@v1.5.0
         with:
