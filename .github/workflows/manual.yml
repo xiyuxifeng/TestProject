@@ -31,7 +31,7 @@ jobs:
       - run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
-          echo "date: $date"
+          echo "date: $date1"
           echo "Environment: $ENVIRONMENT"
         env:
           LEVEL: ${{ inputs.logLevel }}
