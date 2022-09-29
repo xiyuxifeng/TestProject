@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       date:
-        description: 'Log level'
+        description: 'Last Release Date'
         required: true
 jobs:
   build:
