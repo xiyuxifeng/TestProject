@@ -12,10 +12,9 @@ on:
         - info
         - warning
         - debug
-      date:
+      date1:
         description: 'date'
         required: true
-        type: string
       tags:
         description: 'Test scenario tags'
         required: false
