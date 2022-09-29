@@ -39,9 +39,12 @@ jobs:
       - run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
-          echo "date1: $date1"
-          echo "date2: $date2"
-          echo "date3: $date3"
+          echo "date1: $DATE1"
+          echo "date2: $DATE2"
+          echo "date3: $DATE3"
+          echo "date1: ${{ inputs.date1 }}"
+          echo "date2: ${{ inputs.date2 }}"
+          echo "date3: ${{ inputs.date3 }}"
           echo "Environment: $ENVIRONMENT"
         env:
           LEVEL: ${{ inputs.logLevel }}
