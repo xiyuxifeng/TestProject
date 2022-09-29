@@ -13,20 +13,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Export
-        uses: yukiarrr/ios-build-action@v1.5.0
+      - name: Deploy
+        uses: vfrascello/xcode-deploy@v1.4
         with:
-          project-path: MainApp.xcodeproj
-          scheme: MainApp
-          p12-key-base64: ${{ secrets.P12_BASE64 }}
-          p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          code-signing-identity: iOS Developer
-          certificate-password: ${{ secrets.PD }}
-          team-id: ${{ secrets.TEAM_ID }}
-          export-method: development
-          configuration: Debug
-          output-path: output/MainApp.ipa
+          configuration: 'Debug'
+          scheme: 'MainApp'
+          path-to-export-options: 'DevelopmentExportOptions'
+          update-build: true
+          distribution-certificate-p12: ${{ secrets.P12_CER_BASE64 }}
+          distribution-certificate-password: ${{ secrets.PD }}
+          app-store-provisioning-profile: ${{ secrets.MOBILEPROVISION_BASE64}}
+          #auth-key-id: ${{ secrets.AUTH_KEY_ID }}
+          #auth-key-issuer-id: ${{ secrets.AUTH_KEY_ISSUER_ID }}
+          #auth-key-p8: ${{ secrets.AUTH_KEY_P8 }}
+#       - name: Export
+#         uses: yukiarrr/ios-build-action@v1.5.0
+#         with:
+#           project-path: MainApp.xcodeproj
+#           scheme: MainApp
+#           p12-key-base64: ${{ secrets.P12_BASE64 }}
+#           p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+#           mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+#           code-signing-identity: iOS Developer
+#           certificate-password: ${{ secrets.PD }}
+#           team-id: ${{ secrets.TEAM_ID }}
+#           export-method: development
+#           configuration: Debug
+#           output-path: output/MainApp.ipa
       - name: lsIpa
         run: |
           cd output; ls
