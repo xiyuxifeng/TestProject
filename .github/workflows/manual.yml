@@ -1,94 +1,94 @@
 name: Manual Build
 
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      date:
-        description: 'date'
-        required: true
-      date1:
-        description: 'date'
-        required: true
-      date2:
-        description: 'date'
-        required: true
-        type: string
-      date3:
-        description: 'date'
-        required: true
-        type: boolean
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
-
-jobs:
-  log-the-inputs:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "date: $DATE"
-          echo "date1: $DATE1"
-          echo "date2: $DATE2"
-          echo "date3: $DATE3"
-          echo "date1: ${{ inputs.date1 }}"
-          echo "date2: ${{ inputs.date2 }}"
-          echo "date3: ${{ inputs.date3 }}"
-          echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
-
-#https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
 # on:
 #   workflow_dispatch:
 #     inputs:
-#       lastDate:
-#         description: 'Last Release Date'
+#       logLevel:
+#         description: 'Log level'
+#         required: true
+#         default: 'warning'
+#         type: choice
+#         options:
+#         - info
+#         - warning
+#         - debug
+#       date:
+#         description: 'date'
+#         required: true
+#       date1:
+#         description: 'date'
+#         required: true
+#       date2:
+#         description: 'date'
 #         required: true
 #         type: string
+#       date3:
+#         description: 'date'
+#         required: true
+#         type: boolean
+#       tags:
+#         description: 'Test scenario tags'
+#         required: false
+#         type: boolean
+#       environment:
+#         description: 'Environment to run tests against'
+#         type: environment
+#         required: true
+
 # jobs:
-#   build:
-#     environment: xcode
-#     runs-on: macos-latest
+#   log-the-inputs:
+#     runs-on: ubuntu-latest
 #     steps:
-# #         - name: Checkout
-# #           uses: actions/checkout@v3
+#       - run: |
+#           echo "Log level: $LEVEL"
+#           echo "Tags: $TAGS"
+#           echo "date: $DATE"
+#           echo "date1: $DATE1"
+#           echo "date2: $DATE2"
+#           echo "date3: $DATE3"
+#           echo "date1: ${{ inputs.date1 }}"
+#           echo "date2: ${{ inputs.date2 }}"
+#           echo "date3: ${{ inputs.date3 }}"
+#           echo "Environment: $ENVIRONMENT"
+#         env:
+#           LEVEL: ${{ inputs.logLevel }}
+#           TAGS: ${{ inputs.tags }}
+#           ENVIRONMENT: ${{ inputs.environment }}
+
+# https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      lastDate:
+        description: 'Last Release Date'
+        required: true
+        type: string
+jobs:
+  build:
+    environment: xcode
+    runs-on: macos-latest
+    steps:
+#         - name: Checkout
+#           uses: actions/checkout@v3
           
-#         - name: GetLog
-#           run: |
-#             echo "input date: $lastDate"
-#             sh scripts/test.sh $lastDate
-#             cat log.txt
+        - name: GetLog
+          run: |
+            echo "input date: ${{ inputs.lastDate }}"
+            sh scripts/test.sh ${{ inputs.lastDate }}
+            cat log.txt
             
-#         - name: Export
-#           uses: yukiarrr/ios-build-action@v1.5.0
-#           with:
-#             project-path: MainApp.xcodeproj
-#             scheme: MainApp
-#             p12-key-base64: ${{ secrets.P12_BASE64 }}
-#             p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-#             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-#             #mobileprovision-path: MainApp/embedded.mobileprovision
-#             code-signing-identity: iOS Developer
-#             certificate-password: ${{ secrets.PD }}
-#             team-id: ${{ secrets.TEAM_ID }}
-#             export-method: development
-#             configuration: Debug
-#             output-path: output/MainApp.ipa
+        - name: Export
+          uses: yukiarrr/ios-build-action@v1.5.0
+          with:
+            project-path: MainApp.xcodeproj
+            scheme: MainApp
+            p12-key-base64: ${{ secrets.P12_BASE64 }}
+            p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+            mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+            #mobileprovision-path: MainApp/embedded.mobileprovision
+            code-signing-identity: iOS Developer
+            certificate-password: ${{ secrets.PD }}
+            team-id: ${{ secrets.TEAM_ID }}
+            export-method: development
+            configuration: Debug
+            output-path: output/MainApp.ipa
