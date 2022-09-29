@@ -4,7 +4,7 @@ name: Manual Build
 on:
   workflow_dispatch:
     inputs:
-      date:
+      lastDate:
         description: 'Last Release Date'
         required: true
         type: string
@@ -13,27 +13,27 @@ jobs:
     environment: xcode
     runs-on: macos-latest
     steps:
-        - name: Checkout
-          uses: actions/checkout@v3
+#         - name: Checkout
+#           uses: actions/checkout@v3
           
         - name: GetLog
           run: |
-            echo "input date: $date"
-            sh scripts/test.sh $date
+            echo "input date: $lastDate"
+            sh scripts/test.sh $lastDate
             cat log.txt
             
-        - name: Export
-          uses: yukiarrr/ios-build-action@v1.5.0
-          with:
-            project-path: MainApp.xcodeproj
-            scheme: MainApp
-            p12-key-base64: ${{ secrets.P12_BASE64 }}
-            p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-            mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-            #mobileprovision-path: MainApp/embedded.mobileprovision
-            code-signing-identity: iOS Developer
-            certificate-password: ${{ secrets.PD }}
-            team-id: ${{ secrets.TEAM_ID }}
-            export-method: development
-            configuration: Debug
-            output-path: output/MainApp.ipa
+#         - name: Export
+#           uses: yukiarrr/ios-build-action@v1.5.0
+#           with:
+#             project-path: MainApp.xcodeproj
+#             scheme: MainApp
+#             p12-key-base64: ${{ secrets.P12_BASE64 }}
+#             p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+#             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+#             #mobileprovision-path: MainApp/embedded.mobileprovision
+#             code-signing-identity: iOS Developer
+#             certificate-password: ${{ secrets.PD }}
+#             team-id: ${{ secrets.TEAM_ID }}
+#             export-method: development
+#             configuration: Debug
+#             output-path: output/MainApp.ipa
