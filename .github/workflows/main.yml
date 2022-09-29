@@ -37,7 +37,7 @@ jobs:
           action: test         
           
           # Enables code coverage
-          code-coverage: false
+          code-coverage: true
                     
           # Typically `Release` or `Debug`.
           # Leave unset and `xcodebuild` decides itself.
@@ -57,23 +57,4 @@ jobs:
           # One of `always` or `on-failure`.
           # Consider `always` if you want access to your coverage-reports.
           # Beware that artifacts count against your GitHub Actions storage limits.
-          upload-logs: on-failure  
-      
-      - name: Export
-        uses: yukiarrr/ios-build-action@v1.5.0
-        with:
-          project-path: MainApp.xcodeproj
-          scheme: MainApp
-          p12-key-base64: ${{ secrets.P12_BASE64 }}
-          p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          #mobileprovision-path: MainApp/embedded.mobileprovision
-          code-signing-identity: iOS Developer
-          certificate-password: ${{ secrets.PD }}
-          team-id: ${{ secrets.TEAM_ID }}
-          export-method: development
-          configuration: Debug
-          output-path: output/MainApp.ipa
-      - name: ShowIpa
-        run: |
-          cd output; ls
+          upload-logs: on-failure        
