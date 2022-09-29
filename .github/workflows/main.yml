@@ -27,6 +27,7 @@ jobs:
       - name: lsIpa
         run: |
           cd output; ls
+          
 #       - name: build
 #         uses: mxcl/xcodebuild@v1
 #         with:
