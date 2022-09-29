@@ -56,6 +56,12 @@ name: Manual Build
 #           ENVIRONMENT: ${{ inputs.environment }}
 
 # https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+# curl \   
+# -X POST \
+#   -H "Accept: application/vnd.github+json" \
+#   -H "Authorization: Bearer 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" \
+#   https://api.github.com/repos/xiyuxifeng/TestProject/actions/workflows/manual.yml/dispatches \
+#   -d '{"ref":"master","inputs":{"lastDate":"2022-09-10"}}'
 on:
   workflow_dispatch:
     inputs:
