@@ -10,21 +10,24 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Export
-        uses: yukiarrr/ios-build-action@v1.5.0
-        with:
-          project-path: MainApp.xcodeproj
-          scheme: MainApp
-          p12-key-base64: ${{ secrets.P12_BASE64 }}
-          p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
-          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
-          team-id: ${{ secrets.TEAM_ID }}
-          export-method: development
-          configuration: Debug
-          output-path: output/MainApp.ipa
+      - name: Checkou
+        run: |
+          echo ${{ secrets.TEAM_ID }}
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       - name: Export
+#         uses: yukiarrr/ios-build-action@v1.5.0
+#         with:
+#           project-path: MainApp.xcodeproj
+#           scheme: MainApp
+#           p12-key-base64: ${{ secrets.P12_BASE64 }}
+#           p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+#           mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+#           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+#           team-id: ${{ secrets.TEAM_ID }}
+#           export-method: development
+#           configuration: Debug
+#           output-path: output/MainApp.ipa
       - name: lsIpa
         run: |
           cd output; ls
