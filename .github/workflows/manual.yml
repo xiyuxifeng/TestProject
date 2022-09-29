@@ -12,6 +12,9 @@ on:
         - info
         - warning
         - debug
+      date:
+        description: 'date'
+        required: true
       date1:
         description: 'date'
         required: true
@@ -39,6 +42,7 @@ jobs:
       - run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
+          echo "date: $DATE"
           echo "date1: $DATE1"
           echo "date2: $DATE2"
           echo "date3: $DATE3"
