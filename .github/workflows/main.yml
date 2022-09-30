@@ -57,4 +57,4 @@ jobs:
           # One of `always` or `on-failure`.
           # Consider `always` if you want access to your coverage-reports.
           # Beware that artifacts count against your GitHub Actions storage limits.
-          upload-logs: on-failure        
+          upload-logs: always        
