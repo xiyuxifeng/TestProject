@@ -81,7 +81,7 @@ jobs:
           run: |
             echo "input date: ${{ inputs.lastDate }}"
             sh scripts/test.sh ${{ inputs.lastDate }}
-            cat log.txt
+            for line in $(<log.txt); do echo $line; done
             
         - name: Export
           uses: yukiarrr/ios-build-action@v1.5.0
