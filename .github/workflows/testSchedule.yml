@@ -1,0 +1,10 @@
+name: Test Schedule
+on:
+  schedule:
+     - cron: 5 * * * 1,5
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+      - name: echo time
+        run: echo $(date)
