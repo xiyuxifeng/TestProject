@@ -1,7 +1,11 @@
+# on:
+#   schedule:
+#     - cron: '45 6 * * 5'
+#     - cron: '0 7 * * *'
+
 on:
-  schedule:
-    - cron: '45 6 * * 5'
-    - cron: '0 7 * * *'
+  push:
+    branches: [ "master" ]
 
 jobs:
   test_schedule:
