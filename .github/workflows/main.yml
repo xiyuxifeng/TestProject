@@ -11,8 +11,8 @@ jobs:
     environment: xcode
     runs-on: macos-latest
     steps:
-      - name: Intstall
-        run: brew install fastlane
+#       - name: Intstall
+#         run: brew install fastlane
       - name: Checkout
         uses: actions/checkout@v3
 
