@@ -4,7 +4,8 @@ on:
      - cron: 5 * * * 1,5
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
+  test_mySchedule:
+    runs-on: ubuntu-latest
+    steps:
       - name: echo time
         run: echo $(date)
