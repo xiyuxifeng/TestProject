@@ -1,7 +1,7 @@
 name: Test Schedule
 on:
   schedule:
-     - cron: 15 * * * 1,5
+     - cron: '5 * * * 1,5'
 # on:
 #   push:
 #     branches: [ "master" ]
