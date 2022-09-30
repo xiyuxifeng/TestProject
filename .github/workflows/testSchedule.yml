@@ -1,14 +1,17 @@
 name: Test Schedule
 on:
   schedule:
-     - cron: '15 * * * *'
+     - cron: '10 * * * *'
 # on:
 #   push:
 #     branches: [ "master" ]
 
 jobs:
-  test_schedule:
+  auto_checkout:
     runs-on: ubuntu-latest
     steps:
       - name: echo time
         run: echo $(date)
+      - name: Checkout
+        uses: actions/checkout@v3
+        
