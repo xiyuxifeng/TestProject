@@ -84,17 +84,29 @@ jobs:
             cat log.txt
             
         - name: Export
-          uses: yukiarrr/ios-build-action@v1.5.0
+#           uses: yukiarrr/ios-build-action@v1.5.0
+#           with:
+#             project-path: MainApp.xcodeproj
+#             scheme: MainApp
+#             p12-key-base64: ${{ secrets.P12_KEY_BASE64 }}
+#             p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+#             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+#             #mobileprovision-path: MainApp/embedded.mobileprovision
+#             code-signing-identity: Apple Development
+#             certificate-password: ${{ secrets.PD }}
+#             team-id: ${{ secrets.TEAM_ID }}
+#             export-method: development
+#             configuration: Debug
+#             output-path: output/MainApp.ipa
+          uses: yukiarrr/ios-build-action@v1.0.0
           with:
             project-path: MainApp.xcodeproj
             scheme: MainApp
-            p12-key-base64: ${{ secrets.P12_KEY_BASE64 }}
-            p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+            p12-base64: ${{ secrets.P12_KEY_BASE64 }}
             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-            #mobileprovision-path: MainApp/embedded.mobileprovision
             code-signing-identity: Apple Development
-            certificate-password: ${{ secrets.PD }}
             team-id: ${{ secrets.TEAM_ID }}
             export-method: development
+            certificate-password: ${{ secrets.PD }}
             configuration: Debug
             output-path: output/MainApp.ipa
