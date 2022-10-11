@@ -1,4 +1,4 @@
-name: Test Schedule
+name: ScheduleCheckOut
 on:
   schedule:
     - cron: '10 * * * 2'     
