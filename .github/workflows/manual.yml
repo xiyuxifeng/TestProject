@@ -92,7 +92,7 @@ jobs:
             p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
             #mobileprovision-path: MainApp/embedded.mobileprovision
-            code-signing-identity: iOS Developer
+            code-signing-identity: Apple Development
             certificate-password: ${{ secrets.PD }}
             team-id: ${{ secrets.TEAM_ID }}
             export-method: development
